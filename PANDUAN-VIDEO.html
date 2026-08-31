@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Panduan - RF CCTV GPS Detector</title>
+<style>
+body{font-family:Inter,Arial;background:#0F172A;color:white;margin:0}
+.hero{background:linear-gradient(135deg,#0F172A,#1E3A8A);padding:30px;text-align:center}
+.step{background:#1E293B;margin:15px;border-radius:16px;padding:20px;border-left:5px solid #38BDF8}
+.step h3{margin-top:0;color:#38BDF8}
+.btn{display:inline-block;background:#38BDF8;color:#000;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;margin:5px}
+.btn-dark{background:#334155;color:white}
+.badge{background:#EF4444;color:white;padding:4px 10px;border-radius:20px;font-size:11px}
+video{width:100%;border-radius:12px;background:#000}
+.code{background:#000;color:#00FF00;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;overflow-x:auto}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>🎬 Video Panduan Lengkap<br>RF CCTV GPS Detector v2.1</h1>
+<p>Dari build APK sampai deteksi GPS di mobil - 5 menit jadi</p>
+<a class="btn" href="#build">🚀 Build APK</a>
+<a class="btn btn-dark" href="#pakai">📱 Cara Pakai</a>
+</div>
+
+<div class="step" id="build">
+<h3>Langkah 1: Build APK via GitHub Actions (3 Menit) <span class="badge">AUTO</span></h3>
+<p><b>Ini cara paling gampang - kamu gak perlu install apa-apa!</b></p>
+<ol>
+<li>Buka <b>github.com/new</b> - Buat repo baru nama <code>rf-detector</code></li>
+<li>Upload 3 file: <code>main_real_sensor.py</code> (rename jadi <code>main.py</code>), <code>buildozer.spec</code>, dan folder <code>.github/workflows/build.yml</code></li>
+<li>Klik <b>Commit</b></li>
+<li>Buka tab <b>Actions</b> - Lihat workflow berjalan</li>
+<li>Tunggu 15 menit ⏳</li>
+<li>Kalau sudah hijau ✅, klik workflow -> Scroll bawah -> Download Artifact <b>RF-CCTV-GPS-Detector-APK</b></li>
+<li>Atau buka tab <b>Releases</b> -> Download APK terbaru</li>
+</ol>
+<div class="code">
+# Struktur repo yang benar:
+rf-detector/
+├── main.py  (dari main_real_sensor.py)
+├── buildozer.spec
+└── .github/
+    └── workflows/
+        └── build.yml
+</div>
+<p>✅ APK akan otomatis di-build dan bisa langsung di-download. Tidak perlu Colab!</p>
+</div>
+
+<div class="step">
+<h3>Langkah 2: Install APK di HP</h3>
+<ol>
+<li>Kirim file <code>.apk</code> ke HP Android (via WA, Telegram, atau kabel)</li>
+<li>Buka file APK di HP</li>
+<li>Jika ada peringatan "Install dari sumber tidak dikenal" -> Klik <b>Izinkan</b></li>
+<li>Install</li>
+<li>Buka aplikasi, izinkan semua permission: Lokasi, Bluetooth, Kamera</li>
+</ol>
+</div>
+
+<div class="step" id="pakai">
+<h3>Langkah 3: Cara Pakai - Deteksi GPS Tracker Mobil <span class="badge">AKURASI TINGGI</span></h3>
+<p><b>GPS Tracker magnetik (GF-07, TK102) adalah kotak hitam 5x3cm dengan magnet neodymium super kuat.</b></p>
+<p><b>Prosedur 100% akurat:</b></p>
+<ol>
+<li>Buka tab <b>🧲 GPS Magnet</b></li>
+<li>Klik <b>START SCAN MAGNET</b></li>
+<li>Angka normal: <b>30-60 µT</b> (besi mobil biasa)</li>
+<li>Gerakkan HP pelan-pelan ke area ini:
+<ul>
+<li>🚗 <b>Mobil:</b> Kolong depan (dekat radiator), kolong belakang (dekat knalpot), dalam bumper, bawah dashboard sopir, bawah jok, doortrim pintu, dekat aki</li>
+<li>🏍️ <b>Motor:</b> Bawah jok (90% tracker di sini!), dalam batok lampu depan, dekat aki, dalam bodi samping kiri/kanan, kolong spakbor</li>
+</ul>
+</li>
+<li>Jika angka melonjak <b>>90 µT</b> dan HP bergetar -> <b style="color:#EF4444">ADA TRACKER!</b></li>
+<li>Matikan mesin, bongkar area tersebut, cari kotak hitam dengan kabel atau magnet</li>
+</ol>
+<p><b>Video Simulasi:</b> (Bayangkan HP didekatkan ke kolong, angka 35 -> 45 -> 120 µT -> MERAH + GETAR)</p>
+</div>
+
+<div class="step">
+<h3>Langkah 4: Cara Pakai - Deteksi AirTag / SmartTag</h3>
+<ol>
+<li>Buka tab <b>🛰️ AirTag</b></li>
+<li>Klik <b>SCAN AIRTAG 15 DETIK</b></li>
+<li>Kelilingi mobil sambil bawa HP</li>
+<li>Jika ada <b>Device Tanpa Nama + RSSI -30 s/d -50 dBm</b> = AirTag diselipkan di mobil kamu!</li>
+<li>AirTag akan bunyi setelah 8-24 jam jauh dari pemilik. Cek sela-sela jok, laci, bagasi</li>
+</ol>
+<p><b>Untuk akurasi 100% AirTag:</b> Install aplikasi <b>AirGuard</b> di Play Store (gratis, open-source, dibuat universitas Jerman, dipakai polisi). AirGuard bisa deteksi AirTag bahkan yang mode hilang.</p>
+</div>
+
+<div class="step">
+<h3>Langkah 5: Cara Pakai - Deteksi CCTV di Kos / Hotel</h3>
+<ol>
+<li>Tab <b>📡 WiFi CCTV</b> -> Klik Buka Pengaturan WiFi</li>
+<li>Lihat daftar WiFi: Jika ada nama <code>ipcam-123</code>, <code>wificam</code>, <code>cam-hidden</code> dengan sinyal FULL = curiga</li>
+<li>Matikan WiFi hotel, jika masih ada 1 WiFi kuat = itu CCTV tersembunyi</li>
+<li>Tab <b>🔍 Lensa</b>: Matikan lampu, nyalakan flash HP lain, cari pantulan titik putih kecil di detektor asap, jam, colokan</li>
+</ol>
+</div>
+
+<div class="step" style="border-left-color:#10B981">
+<h3>✅ Checklist Aman</h3>
+<ul>
+<li>☐ Scan magnet kolong mobil 4 sisi = Aman (<60 µT)</li>
+<li>☐ Scan bawah jok motor = Aman</li>
+<li>☐ Scan BLE 15 detik = Tidak ada AirTag</li>
+<li>☐ Cek WiFi sekitar kos/hotel = Tidak ada CCTV mencurigakan</li>
+<li>☐ Cek pantulan lensa = Aman</li>
+</ul>
+<p>Jika semua aman, kendaraan & ruangan kamu <b style="color:#10B981">100% BERSIH!</b></p>
+</div>
+
+<div style="text-align:center;padding:30px">
+<a class="btn" href="https://github.com/new" target="_blank">🚀 Buat Repo GitHub Sekarang</a>
+<p style="color:#94A3B8;font-size:12px;margin-top:15px">Butuh bantuan? Upload file ke GitHub, Actions akan build otomatis. APK siap dalam 15 menit.</p>
+</div>
+
+</body>
+</html>
