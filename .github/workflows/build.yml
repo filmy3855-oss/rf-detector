@@ -1,0 +1,80 @@
+name: Build APK RF CCTV GPS Detector v2.1
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev libltdl-dev libsqlite3-dev libbz2-dev libreadline-dev libssl-dev
+          pip install --upgrade pip
+
+      - name: Install Buildozer
+        run: |
+          pip install buildozer==1.5.0
+          pip install cython==0.29.33
+          pip install kivy==2.3.0
+
+      - name: Prepare main.py (sensor asli)
+        run: |
+          # Jika ada main_real_sensor.py, pakai itu sebagai main.py final
+          if [ -f main_real_sensor.py ]; then cp main_real_sensor.py main.py; fi
+          ls -la
+
+      - name: Build APK Debug
+        run: |
+          buildozer -v android debug
+        env:
+          ACCEPT_SDK_LICENSE_AGREEMENTS: "y"
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RF-CCTV-GPS-Detector-APK
+          path: bin/*.apk
+          retention-days: 30
+
+      - name: Create Auto Release
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v2.1-${{ github.run_number }}
+          name: RF CCTV GPS Detector v2.1 - APK Akurasi Tinggi
+          body: |
+            ✅ APK Android Akurasi Tinggi - Auto Build Success
+
+            ### Fitur:
+            🧲 Magnetometer Hardware Real (deteksi GPS magnetik 90-300 µT)
+            🛰️ BLE Scanner AirTag / SmartTag / Tile
+            📡 WiFi Scanner CCTV
+            🔍 Lens Detector
+
+            ### Cara Install:
+            1. Download APK di bawah
+            2. Aktifkan "Install dari sumber tidak dikenal"
+            3. Beri izin Lokasi, Bluetooth, Kamera
+            4. Scan kolong mobil / bawah jok motor
+
+            ### Cara Pakai Magnet:
+            Normal besi: 30-60 µT
+            Ada tracker: >90 µT + HP getar
+
+            Build by GitHub Actions
+          files: bin/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
