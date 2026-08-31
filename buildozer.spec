@@ -1,3 +1,5 @@
+# Write the buildozer.spec content to the file
+%%writefile buildozer.spec
 [app]
 title = RF CCTV GPS Detector
 package.name = rfcctvgpsdetector
@@ -7,7 +9,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 2.0
-version.regex = __version__ = ['"]([^'"]*)['"]
+version.regex = __version__ = ['"]([^"]*)['"]
 version.filename = %(source.dir)s/main.py
 
 [buildozer]
@@ -23,7 +25,7 @@ orientation = portrait
 android.permissions = ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, BLUETOOTH, BLUETOOTH_ADMIN, BLUETOOTH_SCAN, BLUETOOTH_CONNECT, ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, CAMERA, VIBRATE, ACCESS_BACKGROUND_LOCATION
 android.api = 33
 android.minapi = 21
-android.ndk = 25b
+android.ndk = 25
 android.accept_sdk_license_agreement = True
 
 # Untuk Magnetometer & BLE akurasi tinggi
@@ -34,7 +36,7 @@ android.features = android.hardware.sensor.compass, android.hardware.bluetooth_l
 
 [app:android]
 # Tambahan untuk BLE scan
-android.gradle_dependencies = 
+android.gradle_dependencies =
 
 p4a.bootstrap = sdl2
 p4a.port = android
