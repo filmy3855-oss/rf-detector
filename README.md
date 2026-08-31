@@ -74,4 +74,4 @@ https://colab.research.google.com - upload file dan jalankan `buildozer android 
 Gunakan hanya untuk kendaraan/properti milik sendiri. Jangan scan kendaraan orang lain tanpa izin.
 
 ---
-Made with ❤️ by Meta AI - High Accuracy Detector
+Made with ❤️ by Meta AI - OTTER91
